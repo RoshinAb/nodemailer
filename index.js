@@ -10,12 +10,12 @@ app.use(express.urlencoded({extended:false}))
 
 
 app.get('/',(req,res)=>{
-    res.render('index');
+    res.sendFile('views/index.html',{root: __dirname });
 })
 
 
 app.get('/home', async (req,res)=>{
-    await res.render('home')
+    await res.sendFile('views/home.html',{root: __dirname })
 })
 
 app.post('/mailer',(req,res)=>{
@@ -50,7 +50,7 @@ app.post('/mailer',(req,res)=>{
         }
     })
 
-    res.render('mailer')
+    res.sendFile('views/mailer.html',{root: __dirname })
     console.log(req.body)
 })  
 
