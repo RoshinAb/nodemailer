@@ -35,18 +35,18 @@ app.post('/mailer',(req,res)=>{
     let mailOptions = {
         from:"roshin.a@outlook.com",
         to:req.body.email,
-        subject:"Testing",
-        text:"many email-new mail-read this once again"
+        subject:"Mail using Nodemailer",
+        text:"Hi...This mail is send as part of ICT case-study project using nodemailer..Regards Roshin"
     }
     
     transporter.sendMail(mailOptions,function(err,success){
         if(err){
             console.log("Something went wrong ",err)
-            //res.send(<h1>Something went wrong</h1>)
+            res.send("Something went wrong");
         }
         else{
-            console.log("Email sent successfully ",success)
-           // res.send(<h1>Email sent successfully</h1>)
+           console.log("Email sent successfully ",success)
+           res.send("Email sent successfully");
         }
     })
 
