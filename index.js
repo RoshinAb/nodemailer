@@ -42,11 +42,13 @@ app.post('/mailer',(req,res)=>{
     transporter.sendMail(mailOptions,function(err,success){
         if(err){
             console.log("Something went wrong ",err)
-            res.send("Something went wrong");
+           // res.send("Something went wrong");
+            res.sendFile('views/mailFail.html',{root: __dirname });
         }
         else{
            console.log("Email sent successfully ",success)
-           res.send("Email sent successfully");
+          // res.send("Email sent successfully");
+           res.sendFile('views/mailSuccess.html',{root: __dirname })
         }
     })
 
