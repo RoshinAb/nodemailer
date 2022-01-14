@@ -3,6 +3,7 @@ const app = express()
 
 const nodemailer = require('nodemailer')
 app.set('view engine','ejs')
+app.set('views',__dirname+'/views')
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
@@ -35,7 +36,7 @@ app.post('/mailer',(req,res)=>{
         from:"roshin.a@outlook.com",
         to:req.body.email,
         subject:"Testing",
-        text:"many email"
+        text:"many email-new mail-read this once again"
     }
     
     transporter.sendMail(mailOptions,function(err,success){
@@ -53,4 +54,4 @@ app.post('/mailer',(req,res)=>{
     console.log(req.body)
 })  
 
-app.listen(5000);
+app.listen(process.env.PORT||5000);
