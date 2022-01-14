@@ -50,7 +50,7 @@ app.post('/mailer',(req,res)=>{
         }
     })
 
-    res.sendFile('views/mailer.html',{root: __dirname })
+    //res.sendFile('views/mailer.html',{root: __dirname })
     console.log(req.body)
 })  
 
